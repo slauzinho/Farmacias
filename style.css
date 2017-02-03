@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+footer,
+header,
+section {
+  display: block;
+}
+
+body {
+    background-color: #e1ffe3;
+    color: #455a64;
+    font-family: 'Open Sans', sans-serif;
+    font: 75%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive !important;
+  font-size: 91px;
+  font-weight: 500;
+}
+
+h3 {
+  color: dimgrey;
+  font-family: font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25em;
+  margin: 0.5em 0;
+}
+
+h5 {
+  color: dimgrey;
+  font-family: font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.25em;
+  margin: 0.5em 0;
+}
+
+
+.page-wrapper {
+    text-align: center;
+    align-content: center;
+    margin: 0;
+    position: relative;
+}
+
+.morada-farmacia {
+    font-weight: bold;
+}
+
+.nome-farmacia {
+    color: green;
+    font-weight: bold;
+}
+
+.fa-heartbeat{
+    color: black;
+    font-size: 50px;
+}
+
+iframe {
+    border:1px solid lightgrey;
+}

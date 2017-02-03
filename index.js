@@ -23,7 +23,7 @@ function display() {
     const html = matchData.map(farmacia => {
         return `
             <li id="lista-farmacia valign-wrapper">
-                <div  class="collapsible-header collection-item avatar" id="nome">  
+                <div  class="collapsible-header collection-item avatar" id="nome">
                     <span class="title nome-farmacia">
                     <i class="fa fa-heartbeat fa-5x" aria-hidden="true"></i>
                     ${farmacia.nome}
@@ -34,7 +34,7 @@ function display() {
                     </span>
                     <br>
                     <span class="contacto-farmacia">
-                    ${farmacia.contacto} 
+                    ${farmacia.contacto}
                     </span>
                 </div>
                 <div class="collapsible-body">
@@ -44,8 +44,8 @@ function display() {
     }).join("");
     farmaciaTable.innerHTML = html;
     $(".collapsible").collapsible({
-        accordion: false
-        , onOpen: function (el) {
+        accordion: false,
+        onOpen: function(el) {
             const url = encodeURIComponent($(el).find(".morada-farmacia")[0].innerHTML);
             const formated = `<iframe
               width="600"
@@ -55,8 +55,8 @@ function display() {
                 &q=${url}" allowfullscreen">
             </iframe>`; //if the collapsible is opened we need to give the hiden boddy our google maps iframe with the address.
             $(".collapsible-body").html(formated);
-        }
-        , onClose: function (el) {
+        },
+        onClose: function(el) {
             $(".collapsible-body").html("")
         }
     });

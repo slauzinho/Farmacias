@@ -66,4 +66,11 @@ function display() {
     });
 }
 
+document.addEventListener('keypress', function(event){
+  console.log(event.keyCode);
+  if (event.keyCode == 13) {
+    display();
+  }
+})
+
 const searchBtn = document.querySelector(".search");

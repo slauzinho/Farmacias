@@ -63,3 +63,19 @@ h5 {
 iframe {
     border:1px solid lightgrey;
 }
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+@media #{$medium-and-up} {
+  .container {
+    width: 85%;
+  }
+}
+@media #{$large-and-up} {
+  .container {
+    width: 70%;
+  }
+}

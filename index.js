@@ -8,6 +8,7 @@
 const data = "https://raw.githubusercontent.com/slauzinho/farmacia.py/master/result.json";
 const farmacias = [];
 fetch(data).then(blob => blob.json()).then(data => farmacias.push(...data));
+const farmaciaTable = document.querySelector("#farmacias") || 0;
 
 /* Finds in our array the elements that contains the matched word */
 function findMatches(wordToMatch, farmacias) {
@@ -44,7 +45,7 @@ function display() {
     }).join("");
     farmaciaTable.innerHTML = html;
     $(".collapsible").collapsible({
-        accordion: false,
+        accordion: true,
         onOpen: function(el) {
             const url = encodeURIComponent($(el).find(".morada-farmacia")[0].innerHTML);
             const formated = `<iframe
@@ -54,14 +55,16 @@ function display() {
               src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDN-CRTZxMVQCC5z8BAFNgnX7cct-9Ijio
                 &q=${url}" allowfullscreen">
             </iframe>`; //if the collapsible is opened we need to give the hiden boddy our google maps iframe with the address.
-            $(".collapsible-body").html(formated);
+            ($(el).find(".collapsible-body")[0]).innerHTML = formated;
+            //$(".collapsible-body").html(formated);
         },
         onClose: function(el) {
-            $(".collapsible-body").html("")
+            ($(el).find(".collapsible-body")[0]).innerHTML = ""; //todo: fixed typeWerror of undefined
         }
     });
 }
-const farmaciaTable = document.querySelector("#farmacias");
+
+//const farmaciaTable = document.querySelector("#farmacias");
 const searchBtn = document.querySelector(".search");
 searchBtn.addEventListener("change", display);
 searchBtn.addEventListener("keyup", display);

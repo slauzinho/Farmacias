@@ -23,7 +23,10 @@
                     <br>
                     <br>
                     <div class="input-field col s6">
-                        <input placeholder="Pesquisar Farmácias (Por Nome/Morada/Localidade/Cidade/Distrito)" class="search center-align" id="search-button" type=text>
+                        <input placeholder="Pesquisar Farmácias (Por Nome/Morada/Localidade/Cidade/Distrito)" class="search center-align" id="search-button" type=text value=""></input>
+                        <button class="btn waves-effect waves-light" onclick="display()" type="submit" name="action">Procurar
+                            <i class="material-icons right"></i>
+                        </button>
                     </div>
                     <!-- Farmacia list goes here -->
                     <ul class="collapsible collection" id="farmacias" data-collapsible="expandable"> </ul>

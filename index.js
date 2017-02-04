@@ -20,13 +20,13 @@ function findMatches(wordToMatch, farmacias) {
 
 /* Displays our array */
 function display() {
-    const matchData = findMatches(this.value, farmacias);
+    const textToBeMatched = $("#search-button").val();
+    const matchData = findMatches(textToBeMatched, farmacias);
     const html = matchData.map(farmacia => {
         return `
             <li id="lista-farmacia valign-wrapper">
                 <div  class="collapsible-header collection-item avatar" id="nome">
                     <span class="title nome-farmacia">
-                    <i class="fa fa-heartbeat fa-5x" aria-hidden="true"></i>
                     ${farmacia.nome}
                     </span>
                     <br>
@@ -56,15 +56,14 @@ function display() {
                 &q=${url}" allowfullscreen">
             </iframe>`; //if the collapsible is opened we need to give the hiden boddy our google maps iframe with the address.
             ($(el).find(".collapsible-body")[0]).innerHTML = formated;
-            //$(".collapsible-body").html(formated);
         },
         onClose: function(el) {
-            ($(el).find(".collapsible-body")[0]).innerHTML = ""; //todo: fixed typeWerror of undefined
+            const $hiddenBody = $(el).find(".collapsible-body")[0];
+            if (typeof $hiddenBody != 'undefined') {
+                $hiddenBody.innerHTML = '';
+            }
         }
     });
 }
 
-//const farmaciaTable = document.querySelector("#farmacias");
 const searchBtn = document.querySelector(".search");
-searchBtn.addEventListener("change", display);
-searchBtn.addEventListener("keyup", display);

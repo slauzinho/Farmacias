@@ -20,7 +20,7 @@ function findMatches(wordToMatch, farmacias) {
 
 /* Displays our array */
 function display() {
-    const textToBeMatched = $("#search-button").val();
+    const textToBeMatched = $("#search-field").val();
     const matchData = findMatches(textToBeMatched, farmacias);
     const html = matchData.map(farmacia => {
         return `

@@ -45,12 +45,10 @@ function display() {
     }).join("");
     farmaciaTable.innerHTML = html;
     $(".collapsible").collapsible({
-        accordion: true,
+        accordion: false,
         onOpen: function(el) {
             const url = encodeURIComponent($(el).find(".morada-farmacia")[0].innerHTML);
             const formated = `<iframe
-              width="600"
-              height="450"
               frameborder="0" style="border:1px solid lightgrey;"
               src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDN-CRTZxMVQCC5z8BAFNgnX7cct-9Ijio
                 &q=${url}" allowfullscreen">
@@ -66,11 +64,11 @@ function display() {
     });
 }
 
-document.addEventListener('keypress', function(event){
-  console.log(event.keyCode);
-  if (event.keyCode == 13) {
-    display();
-  }
+document.addEventListener('keypress', function(event) {
+    console.log(event.keyCode);
+    if (event.keyCode == 13) {
+        display();
+    }
 })
 
 const searchBtn = document.querySelector(".search");

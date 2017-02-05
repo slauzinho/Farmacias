@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-footer,
-header,
-section {
-  display: block;
+footer, header, section {
+    display: block;
 }
 
 body {
@@ -16,28 +13,27 @@ body {
 }
 
 h1 {
-  font-family: 'Pacifico', cursive !important;
-  font-size: 91px;
-  font-weight: 500;
+    font-family: 'Pacifico', cursive !important;
+    font-size: 91px;
+    font-weight: 500;
 }
 
 h3 {
-  color: dimgrey;
-  font-family: font-family: 'Open Sans', sans-serif;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.25em;
-  margin: 0.5em 0;
+    color: dimgrey;
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.25em;
+    margin: 0.5em 0;
 }
 
 h5 {
-  color: dimgrey;
-  font-family: font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
-  line-height: 1.25em;
-  margin: 0.5em 0;
+    color: dimgrey;
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.25em;
+    margin: 0.5em 0;
 }
-
 
 .page-wrapper {
     text-align: center;
@@ -50,32 +46,40 @@ h5 {
     font-weight: bold;
 }
 
+@media only screen and (max-width: 1024px) {
+    .morada-farmacia, .contacto-farmacia, .collection .collection-item.avatar .title, html {
+        font-size: 30px;
+    }
+}
+
 .nome-farmacia {
     color: green;
     font-weight: bold;
 }
 
-.fa-heartbeat{
+.fa-heartbeat {
     color: black;
     font-size: 50px;
 }
 
-iframe {
-    border:1px solid lightgrey;
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 1280px;
-  width: 100%;
+.collapsible-body {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
 }
-@media #{$medium-and-up} {
-  .container {
-    width: 85%;
-  }
-}
-@media #{$large-and-up} {
-  .container {
-    width: 70%;
-  }
+
+.collapsible-body iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

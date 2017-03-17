@@ -20,7 +20,9 @@ function findMatches(wordToMatch, farmacias) {
 
 /* Displays our array */
 function display() {
-    const textToBeMatched = $("#search-field").val();
+    const textToBeMatched = $("#search-field").val() || $("#nav-search").val();
+    $("#search-field").val('');
+    $("#nav-search").val('');
     const matchData = findMatches(textToBeMatched, farmacias);
     const html = matchData.map(farmacia => {
         return `
@@ -64,11 +66,46 @@ function display() {
     });
 }
 
+// Function that controls the nav-bar component
+function checkScroll() {
+    const line = document.getElementById('scrollLine');
+    const offsetLine = line.offsetTop + line.offsetHeight;
+
+    if (window.scrollY >= offsetLine) {
+        const containerWidth = document.getElementById('main-container').offsetWidth
+        const navBar = document.getElementById('main-nav');
+        navBar.className = 'navbar-fixed slide-in active';
+        navBar.style.width = `${containerWidth}px`;
+    } else {
+        document.getElementById('main-nav').className = 'navbar-invisible slide-in';
+    }
+};
+
+function debounce(func, wait = 10, immediate = true) {
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate)
+                func.apply(context, args);
+            };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow)
+            func.apply(context, args);
+        };
+};
+
+document.addEventListener('scroll', debounce(checkScroll));
+
 document.addEventListener('keypress', function(event) {
     console.log(event.keyCode);
     if (event.keyCode == 13) {
         display();
     }
-})
+});
 
 const searchBtn = document.querySelector(".search");

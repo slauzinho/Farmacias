@@ -14,31 +14,48 @@
 </head>
 
 <body id="farmacias-site">
-    <div class="container">
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <div id="main-container" class="container">
+
         <div class="page-wrapper">
             <section class="intro" id="fm-intro">
                 <header role="banner">
                     <h1>Farmácias</h1>
                     <br>
                     <br>
-                    <div class="input-field col s6">
+                    <div id="scrollLine" class="input-field col s6">
                         <input placeholder="Pesquisar Farmácias (Por Nome/Morada/Localidade/Cidade/Distrito)" class="search center-align" id="search-field" type=text value="">
                         <button id="btnSearch" class="btn waves-effect waves-light" onclick="display()" type="submit" name="action">Procurar
                             <i class="material-icons right"></i>
                         </button>
                     </div>
-                    <br>
-                    <br>
+                    <div class="outer">
+                      <nav id="main-nav" class="navbar-invisible slide-in">
+                    <div class="nav-wrapper">
+                      <div class="input-field inline">
+                        <input placeholder="Pesquisar" id="nav-search" type="text" class="validate">
+                        <label for="first_name">Procurar Farmacias</label>
+                    </div>
+                    </div>
+                  </nav>
+                </div>
                     <!-- Farmacia list goes here -->
                     <ul class="collapsible collection" id="farmacias" data-collapsible="expandable"> </ul>
             </section>
         </div>
         <!-- Compiled and minified JavaScript -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
         <script src="index.js"></script>
     </div>
 </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-93847213-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>
